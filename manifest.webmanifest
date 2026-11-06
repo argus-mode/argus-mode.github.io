@@ -1,0 +1,15 @@
+{
+  "name": "Argus",
+  "short_name": "Argus",
+  "description": "Phone photos of documents to clean, named PDFs. Reading and naming happen on the device.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0E0F11",
+  "theme_color": "#0E0F11",
+  "icons": [
+    { "src": "icons/argus-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/argus-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

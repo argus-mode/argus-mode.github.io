@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; manifest-src 'self'; connect-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E0F11">
+<title>Argus</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/argus-192.png">
+<link rel="apple-touch-icon" href="icons/argus-192.png">
+<link rel="stylesheet" href="unlock.css">
+<script type="module" src="unlock.js"></script>
+</head>
+<body>
+<main class="vault">
+  <header class="masthead">
+    <svg class="mark" viewBox="0 0 22 22" aria-hidden="true"><path d="M1.5 11 L11 3.5 L20.5 11 L11 18.5 Z" fill="none" stroke="#B98A3C" stroke-width="1"/><rect x="8.5" y="8.5" width="5" height="5" fill="#B98A3C"/></svg>
+    <span class="wordmark">Argus</span>
+  </header>
+  <form class="plate" data-lock="form" novalidate>
+    <p class="headline" data-lock="headline" role="status">Argus is locked.</p>
+    <label class="field"><span class="stamp">Passcode</span><input class="well mono" data-lock="secret" type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false"></label>
+    <p class="note" data-lock="line" role="status"></p>
+    <div class="actions"><button class="key key-primary key-wide" data-lock="unlock" type="submit">Unlock</button></div>
+  </form>
+</main>
+</body>
+</html>

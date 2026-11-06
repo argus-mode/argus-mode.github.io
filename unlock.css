@@ -1,0 +1,120 @@
+/* The unlock page, Vault family (CLAUDE.md section 6; Argus spec section 14). Its tokens are
+   css/argus.css's, value for value (tests/site-page.test.js holds them equal): brass is the only
+   accent; there is no red, which is the live capture's alone; depth is a 1px light top edge and a
+   1px dark bottom edge; no radius on panels, no blur, no glow, no webfonts; dark only; mobile first.
+   A wrong passcode is said in the normal text colour (access spec section 4). */
+
+:root {
+  --ground:      #0E0F11;
+  --plate:       #14161A;
+  --recess:      #0A0B0D;
+  --seam:        #23272E;
+  --seam-lit:    #31363F;
+  --seam-dark:   #08090B;
+  --brass:       #B98A3C;
+  --brass-lit:   #D9AE60;
+  --brass-hover: #C99C4E;
+  --brass-dim:   #4A3819;
+  --brass-ink:   #14100A;
+  --fg:          #DDE0E5;
+  --fg-dim:      #828A94;
+  --f-plate: "Helvetica Neue", -apple-system, BlinkMacSystemFont, system-ui, Arial, sans-serif;
+  --f-mono:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --t-label: 10.5px;
+  --t-sm:    12px;
+  --t-body:  14px;
+  --t-lg:    17px;
+  --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 36px;
+  --ease: cubic-bezier(.2, 0, 0, 1);
+  --fast: 140ms;
+  --tap: 44px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--fg);
+  font: 400 var(--t-body)/1.55 var(--f-plate);
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+p { margin: 0 0 var(--sp-3); }
+
+.vault { display: block; width: 100%; max-width: 620px; margin: 0 auto; padding: 0 0 var(--sp-6); }
+.masthead {
+  display: flex; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-4);
+  border-bottom: 1px solid var(--seam);
+  background: var(--ground);
+}
+.mark { width: 22px; height: 22px; flex: none; display: block; }
+.wordmark {
+  font-size: 15px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .34em; font-stretch: 87.5%; color: var(--fg); padding-left: 1px;
+}
+
+.plate {
+  margin: 0;
+  background: var(--plate);
+  border: 1px solid var(--seam);
+  border-top-color: var(--seam-lit);
+  border-bottom-color: var(--seam-dark);
+  border-radius: 0;
+  padding: var(--sp-4);
+}
+.headline { font-size: var(--t-lg); color: var(--fg); margin: var(--sp-2) 0 var(--sp-5); }
+.note { color: var(--fg); font-size: var(--t-sm); line-height: 1.6; overflow-wrap: anywhere; }
+.note:empty { margin: 0; }
+
+.field { display: block; margin-bottom: var(--sp-3); }
+.stamp {
+  display: block; margin-bottom: var(--sp-2);
+  font-family: var(--f-plate); font-size: var(--t-label); font-weight: 600;
+  text-transform: uppercase; letter-spacing: .19em; font-stretch: 87.5%;
+  color: var(--fg-dim); line-height: 1;
+}
+.well {
+  width: 100%;
+  background: var(--recess);
+  color: var(--fg);
+  border: 1px solid var(--seam-dark);
+  border-bottom-color: var(--seam);
+  border-radius: 0;
+  padding: 10px var(--sp-3);
+  font: 400 var(--t-sm)/1.4 var(--f-plate);
+  appearance: none; -webkit-appearance: none;
+}
+.well.mono { font-family: var(--f-mono); letter-spacing: .08em; }
+.well:focus-visible { outline: 1px solid var(--brass); outline-offset: -1px; }
+@media (pointer: coarse) { .well { font-size: 16px; } }
+
+.actions { display: flex; margin-top: var(--sp-4); }
+.key {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--tap);
+  padding: 0 var(--sp-4);
+  border: 1px solid var(--seam);
+  border-radius: 0;
+  font: 600 var(--t-label)/1 var(--f-plate);
+  text-transform: uppercase; letter-spacing: .16em; font-stretch: 87.5%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+.key:active { transform: translateY(1px); }
+.key-primary {
+  background: var(--brass);
+  color: var(--brass-ink);
+  border-color: var(--brass-dim);
+  border-top-color: var(--brass-lit);
+}
+@media (hover: hover) {
+  .key-primary:hover { background: var(--brass-hover); }
+}
+.key[disabled] { background: var(--recess); color: var(--fg-dim); border-color: var(--seam); cursor: not-allowed; transform: none; }
+.key-wide { width: 100%; }
+.key:focus-visible { outline: 1px solid var(--brass); outline-offset: 2px; }
